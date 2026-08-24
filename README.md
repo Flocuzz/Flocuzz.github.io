@@ -191,9 +191,9 @@ Cada projeto representa uma oportunidade para aprender algo novo e melhorar como
 
 **Nome:** Anderson Ramos Cantarin Junior
 **GitHub:** [@Flocuzz](https://github.com/Flocuzz)
-**LinkedIn:** Adicionar link
-**E-mail:** Adicionar e-mail profissional
-**Portfólio:** Adicionar quando disponível
+**LinkedIn:** www.linkedin.com/in/anderson-ramos-cantarin-junior-425475384
+**E-mail:** cantarinadnerson431@gmail.com
+**Portfólio:** 
 
 > 📩 **Aberto a oportunidades, networking, projetos e aprendizado na área de tecnologia.**
 
