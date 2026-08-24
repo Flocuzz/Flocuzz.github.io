@@ -161,13 +161,13 @@ Cada projeto representa uma oportunidade para aprender algo novo e melhorar como
 
 ### 💼 LinkedIn
 
-<a href="SEU_LINKEDIN_AQUI">
+<a href="www.linkedin.com/in/anderson-ramos-cantarin-junior-425475384">
 <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
 
 ### 📧 E-mail
 
-<a href="mailto:SEU_EMAIL_AQUI">
+<a href="mailto:cantarinadnerson431@gmail.com">
 <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white">
 </a>
 
