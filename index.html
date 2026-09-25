@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anderson Cantarin — Desenvolvedor de Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #080810;
+  --surface:   #0e0e1a;
+  --surface2:  #13131f;
+  --border:    #1c1c2e;
+  --purple:    #8b5cf6;
+  --purple-lo: rgba(139,92,246,.08);
+  --purple-md: rgba(139,92,246,.18);
+  --text:      #ececf1;
+  --muted:     #5a5a7a;
+  --soft:      #9898b8;
+  --font-d:    'Space Grotesk', sans-serif;
+  --font-b:    'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 56px;
+  background: rgba(8,8,16,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo span { color: var(--purple); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .18s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+/* ── LAYOUT ── */
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 120px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.avail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--purple);
+  background: var(--purple-lo);
+  border: 1px solid var(--purple-md);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+}
+
+.avail-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(139,92,246,.3);
+}
+
+.hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 7.5vw, 68px);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--purple);
+}
+
+.hero-sub {
+  font-family: var(--font-d);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--soft);
+  margin-bottom: 12px;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-bottom: 32px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--soft);
+  text-decoration: none;
+  transition: color .18s;
+}
+
+.contact-item:hover { color: var(--text); }
+
+.contact-item svg {
+  width: 13px; height: 13px;
+  flex-shrink: 0;
+  opacity: 0.45;
+}
+
+/* ── SEÇÕES ── */
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type { border-bottom: none; }
+
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.sec-label {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── SOBRE ── */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 48px;
+}
+
+.sobre-text {
+  font-size: 14px;
+  color: var(--soft);
+  line-height: 1.75;
+  grid-column: 1 / -1;
+}
+
+.sobre-item-label {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.sobre-item-value {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ── EXPERIÊNCIA / FORMAÇÃO ── */
+.entry {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0 28px;
+  margin-bottom: 36px;
+  align-items: start;
+}
+
+.entry:last-child { margin-bottom: 0; }
+
+.entry-left {
+  text-align: right;
+  padding-top: 2px;
+}
+
+.entry-period {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.entry-place {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  opacity: .7;
+}
+
+.entry-right {
+  border-left: 1px solid var(--border);
+  padding-left: 28px;
+  position: relative;
+}
+
+.entry-right::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 7px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow: 0 0 0 3px rgba(139,92,246,.2);
+}
+
+.entry-title {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.entry-org {
+  font-size: 13px;
+  color: var(--purple);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.entry-desc {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.7;
+}
+
+.entry-bullets {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.entry-bullets li {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.65;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.entry-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  opacity: .6;
+}
+
+/* ── PROJETOS ── */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+
+.project:hover {
+  border-color: rgba(139,92,246,.35);
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.project-title {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stack-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--purple);
+  background: var(--purple-lo);
+  border: 1px solid var(--purple-md);
+  border-radius: 4px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.65;
+}
+
+/* ── HABILIDADES ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.skill-group-label {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--soft);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 9px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+footer strong { color: var(--soft); font-weight: 500; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .wrap { padding: 0 20px; }
+  .hero { padding: 88px 0 56px; }
+  .entry { grid-template-columns: 1fr; }
+  .entry-left { text-align: left; padding-top: 0; margin-bottom: 6px; }
+  .entry-right { border-left: none; padding-left: 0; }
+  .entry-right::before { display: none; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 20px; }
+  .sobre-text { grid-column: 1; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .project-top { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Anderson <span>Cantarin</span></div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="avail-badge">Disponível para estágio</div>
+      <h1>Anderson<br><em>Cantarin.</em></h1>
+      <p class="hero-sub">Desenvolvedor de Software em formação</p>
+      <p class="hero-desc">
+        Estudante de Análise e Desenvolvimento de Sistemas, com foco em Java, bancos de dados e desenvolvimento web. Apaixonado por tecnologia e por construir soluções que funcionam de verdade.
+      </p>
+      <div class="contact-row">
+        <a href="tel:+5512981231948" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1.02.36 2.02.7 2.99a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.97.34 1.97.57 2.99.7A2 2 0 0122 14.92z"/></svg>
+          (12) 98123-1948
+        </a>
+        <a href="mailto:cantarinanderson431@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          cantarinanderson431@gmail.com
+        </a>
+        <span class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          São Sebastião, SP — Brasil
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap">
+      <div class="sec-header">
+        <span class="sec-label">Sobre</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="sobre-grid">
+        <p class="sobre-text">
+          Tenho 18 anos e estou cursando Análise e Desenvolvimento de Sistemas. Aprendo programação construindo projetos reais — desde sistemas de gestão até aplicações web. Meu foco principal hoje é Java, mas tenho experiência prática com Python, JavaScript, SQL e ambientes Linux. Busco meu primeiro estágio em TI para crescer profissionalmente e contribuir com uma equipe de verdade.
+        </p>
+        <div>
+          <div class="sobre-item-label">Localização</div>
+          <div class="sobre-item-value">São Sebastião, SP — Litoral Norte</div>
+        </div>
+        <div>
+          <div class="sobre-item-label">Idiomas</div>
+          <div class="sobre-item-value">Português — Nativo<br>Inglês — Técnico / Leitura</div>
+        </div>
+        <div>
+          <div class="sobre-item-label">Áreas de interesse</div>
+          <div class="sobre-item-value">Back-end · APIs · Banco de Dados · Web</div>
+        </div>
+        <div>
+          <div class="sobre-item-label">Competências</div>
+          <div class="sobre-item-value">Trabalho em equipe · Proatividade · Resolução de problemas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-header">
+        <span class="sec-label">Experiência</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-left">
+          <div class="entry-period">Nov 2025 — Atual</div>
+          <div class="entry-place">São Sebastião, SP</div>
+        </div>
+        <div class="entry-right">
+          <div class="entry-title">Garçom</div>
+          <div class="entry-org">Barequeçaba Praia Hotel</div>
+          <ul class="entry-bullets">
+            <li>Atendimento ao cliente com foco em qualidade e agilidade em ambiente hoteleiro de alto fluxo.</li>
+            <li>Comunicação eficaz com hóspedes e equipe em situações de pressão.</li>
+            <li>Desenvolvimento de responsabilidade, organização e trabalho em equipe no dia a dia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section id="formacao">
+    <div class="wrap">
+      <div class="sec-header">
+        <span class="sec-label">Formação</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-left">
+          <div class="entry-period">Em andamento</div>
+        </div>
+        <div class="entry-right">
+          <div class="entry-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
+          <div class="entry-org">ADS — Ensino Superior</div>
+          <ul class="entry-bullets">
+            <li>Modelagem de banco de dados, DER, dicionário de dados e regras de negócio.</li>
+            <li>Programação Orientada a Objetos, estruturas de dados e engenharia de software.</li>
+            <li>Desenvolvimento web, user stories, wireframes e análise de requisitos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-header">
+        <span class="sec-label">Projetos</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="projects-list">
+        <div class="project">
+          <div class="project-top">
+            <div class="project-title">StreetSoul — E-commerce</div>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">SQL</span>
+              <span class="stack-tag">HTML</span>
+              <span class="stack-tag">CSS</span>
+              <span class="stack-tag">JavaScript</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Plataforma de e-commerce de streetwear com catálogo de produtos, carrinho de compras, sistema de contas e autenticação. Inclui recurso de IA (AutoStyle) para sugestão de looks. Desenvolvido com foco em mobile-first e banco de dados relacional.
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="project-top">
+            <div class="project-title">Sistema de Gestão Empresarial</div>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">SQLite</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Sistema desktop completo para gestão de loja: cadastro de clientes e produtos, controle de estoque, registro de vendas e geração de relatórios. Foco em modelagem de banco de dados e lógica de negócio.
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="project-top">
+            <div class="project-title">Calculadora em Java</div>
+            <div class="project-stack">
+              <span class="stack-tag">Java</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Projeto prático de aprendizado com foco em Programação Orientada a Objetos, encapsulamento, estruturação de código limpo e boas práticas de desenvolvimento em Java.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <div class="wrap">
+      <div class="sec-header">
+        <span class="sec-label">Habilidades técnicas</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-label">Linguagens</div>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">SQL</span>
+            <span class="tag">C</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Ferramentas & Ambiente</div>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Linux</span>
+            <span class="tag">WSL / Ubuntu</span>
+            <span class="tag">Maven</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Banco de Dados</div>
+          <div class="tags">
+            <span class="tag">SQLite</span>
+            <span class="tag">Modelagem</span>
+            <span class="tag">DER</span>
+            <span class="tag">JDBC</span>
+            <span class="tag">Relacionamentos N:M</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Conceitos & Metodologias</div>
+          <div class="tags">
+            <span class="tag">POO</span>
+            <span class="tag">APIs REST</span>
+            <span class="tag">HTTP/HTTPS</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">BPMN</span>
+            <span class="tag">User Stories</span>
+            <span class="tag">Wireframes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <strong>Anderson Ramos Cantarin Junior</strong><br>
+      São Sebastião, SP &nbsp;·&nbsp; cantarinanderson431@gmail.com &nbsp;·&nbsp; (12) 98123-1948
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
